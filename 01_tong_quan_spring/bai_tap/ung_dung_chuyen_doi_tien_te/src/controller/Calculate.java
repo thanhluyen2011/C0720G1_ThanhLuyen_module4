@@ -13,9 +13,8 @@ public class Calculate {
     @Autowired
     private Service service;
     @PostMapping({"/calculate"})
-    public String calculate(@RequestParam String doLa, Model model){
-
-        model.addAttribute("vnd",service.calculate(Integer.parseInt(doLa)));
+    public String calculate(@RequestParam int doLa, Model model){
+        model.addAttribute("vnd",service.calculate(doLa));
         return "vnd";
     }
 

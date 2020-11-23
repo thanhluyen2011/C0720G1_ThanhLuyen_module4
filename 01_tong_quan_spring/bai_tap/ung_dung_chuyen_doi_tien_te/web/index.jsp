@@ -15,7 +15,7 @@
     <h1 style="color: cornflowerblue">Ứng Dụng Chuyển Đổi Tiền Tệ</h1>
     <label>Nhập Đôla($)</label>
     <br>
-    <input type="text" name="doLa">
+    <input type="number" name="doLa">
     <input type="submit" value="Đổi ">
   </form>
   </body>
