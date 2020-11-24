@@ -23,6 +23,6 @@
         <input type="submit" name="calculation" value="Division(/)">
     </p>
 </form>
-<h2 style="text-align: center;color: red">Result ${calcul}: ${result}</h2>
+<h2 style="text-align: center;color: red">Result : ${result}</h2>
 </body>
 </html>

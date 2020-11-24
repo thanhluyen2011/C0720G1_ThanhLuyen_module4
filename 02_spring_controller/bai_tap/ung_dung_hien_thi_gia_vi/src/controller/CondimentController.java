@@ -16,7 +16,7 @@ public class CondimentController {
     @GetMapping("/save")
     public String save(@RequestParam("condiment") String[] condiment,
             ModelMap modelMap) {
-        modelMap.addAttribute("condiment", condiment);
+        modelMap.addAttribute("condiment",condiment);
         return "save";
     }
 }

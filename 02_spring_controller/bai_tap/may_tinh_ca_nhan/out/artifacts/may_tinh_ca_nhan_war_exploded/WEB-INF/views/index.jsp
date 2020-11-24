@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1 style="text-align: center;color: red">Calculator</h1>
-    <form action="calculate" method="post" style="text-align: center">
+<form action="calculate" method="post" style="text-align: center">
     <input type="text" name="number1" value="${number1}">
     <input type="text" name="number2" value="${number2}">
     <p>
@@ -23,6 +23,6 @@
         <input type="submit" name="calculation" value="Division(/)">
     </p>
 </form>
-<h2 style="text-align: center;color: red">Result ${calcul}: ${result}</h2>
+<h2 style="text-align: center;color: red">Result : ${result}</h2>
 </body>
 </html>
