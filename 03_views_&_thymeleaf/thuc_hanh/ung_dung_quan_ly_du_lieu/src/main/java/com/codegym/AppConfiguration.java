@@ -16,7 +16,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.codegym.controller")
+@ComponentScan("com.codegym")
 public class AppConfiguration extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
@@ -26,7 +26,6 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
         this.applicationContext = applicationContext;
     }
 
-    //Thymeleaf Configuration
     @Bean
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();

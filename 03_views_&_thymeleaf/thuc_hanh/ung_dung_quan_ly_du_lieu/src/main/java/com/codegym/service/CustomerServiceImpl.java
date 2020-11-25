@@ -22,7 +22,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List findAll() {
+    public List<Customer> findAll() {
         return new ArrayList<>(customers.values());
     }
 
