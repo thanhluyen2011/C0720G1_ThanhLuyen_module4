@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<nav th:replace="/layout :: navbar"></nav>
+<div class="content">
+    <form th:object="${blog}" action="/blog/save-blog" method="post" style="width: 80%">
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Your title" th:field="*{title}">
+        </div>
+        <div class="form-group">
+            <label for="writer">writeDay</label>
+            <input type="text" class="form-control" id="writer" placeholder="Writer's name" th:field="*{writer}">
+        </div>
+        <div class="form-group">
+            <label for="writeDay">writer</label>
+            <input type="date" class="form-control" id="writeDay" placeholder="Writer's name" th:field="*{writeDay}">
+        </div>
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea class="form-control" id="content" rows="14" th:field="*{content}"></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Save</button>
+        <a href="/" class="btn btn-outline-warning">Cancel</a>
+    </form>
+</div>
+
+
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
