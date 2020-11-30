@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<nav th:replace="/layout :: navbar"></nav>
+<div class="content" th:object="${blog}">
+    <h2 th:text="${blog.title}"></h2>
+    <p style="font-size: small" th:text="${blog.writeDay}"></p>
+    <p style="font-size: small" th:text="${blog.writer}"></p>
+
+    <pre th:text="${blog.content}"></pre>
+</div>
+
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
