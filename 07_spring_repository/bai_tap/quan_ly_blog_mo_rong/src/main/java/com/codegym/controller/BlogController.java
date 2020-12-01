@@ -88,7 +88,7 @@ public class BlogController {
     public String createCategory(Model model) {
         model.addAttribute("category", new Category());
         return "saveCategory";
-    }
+}
     @PostMapping("/category/save-category")
     public String saveOldCategory(@ModelAttribute Category category, RedirectAttributes redirectAttributes) {
         categoryService.saveCategory(category);
@@ -100,11 +100,4 @@ public class BlogController {
         model.addAttribute("category",categoryService.selectCategoryById(id));
         return "editCategory";
     }
-//    @GetMapping("/search")
-//    public String searchBlog(@RequestParam String searchData, Model model) {
-//        List<Blog> blogList = iBlogService.searchBlog(searchData);
-//        model.addAttribute("list", blogList);
-//        model.addAttribute("message", "There are "+blogList.size()+" result(s) found");
-//        return "list";
-//    }
 }
