@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<form style="text-align: center;color: red">
+    <a th:href="@{/create}">Create New Book</a>
+    <ul>
+        <li><a th:href="@{/listBook}">Borrow Book</a></li>
+        <li><a th:href="@{/giveBook}">Give book back</a></li>
+    </ul>
+</form>
+</body>
+</html>

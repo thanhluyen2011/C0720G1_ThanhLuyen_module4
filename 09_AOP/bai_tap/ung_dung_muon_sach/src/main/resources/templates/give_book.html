@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<fieldset>
+    <legend>Trading Code Borrow Book</legend>
+    <form action="/giveBook" method="post">
+        <table>
+            <tr>
+                <td>Trading Code</td>
+                <td><input type="text" th:name="id" th:value="${idCode}"></td>
+                <td><p th:if="${message!=null}" th:text="${message}" style="color:red;"></p></td>
+            </tr>
+            <tr>
+                <td><a th:href="@{/back}">Back</a></td>
+                <td><input type="submit" value="Give"></td>
+                <td></td>
+            </tr>
+
+        </table>
+    </form>
+</fieldset>
+</body>
+</html>
