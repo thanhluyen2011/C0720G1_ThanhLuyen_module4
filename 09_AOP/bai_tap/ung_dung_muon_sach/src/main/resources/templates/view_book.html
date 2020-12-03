@@ -5,7 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-<a th:href="@{/back}">Back</a>
+
+<input type="submit" th:href="@{/back}" value="Back">
 <form action="/borrow" method="post" th:object="${book}">
     <input type="hidden" th:field="*{id}">
     <table>

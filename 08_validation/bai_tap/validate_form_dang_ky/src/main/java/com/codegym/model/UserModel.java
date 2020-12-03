@@ -14,8 +14,8 @@ public class UserModel {
     private String lastName;
     @Pattern(regexp = "(090|098)\\d{7}",message = "Phone không đúng định dạng!")
     private String phoneNumber;
-    @Min(value = 18,message = "tuổi nhỏ hơn 18!")
-    @Max(value = 50,message = "tuổi lớn hơn 50!")
+    @Min(value = 18,message = "tuổi phải lớn hơn 18!")
+    @Max(value = 50,message = "tuổi phải nhỏ hơn 50!")
     private String age;
     @Email(message = "email không đúng dịnh dạng")
     @NotEmpty(message = "email không đúng dịnh dạng")

@@ -21,7 +21,8 @@ public class UserController {
         if (bindingResult.hasErrors()){
             return "input";
         }else {
-            return "resultUser";
+            return "" +
+                    "";
         }
     }
 }
