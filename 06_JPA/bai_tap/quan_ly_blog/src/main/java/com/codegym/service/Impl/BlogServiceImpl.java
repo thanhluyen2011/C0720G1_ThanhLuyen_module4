@@ -4,6 +4,7 @@ import com.codegym.model.Blog;
 import com.codegym.repository.IRepositoryBlog;
 import com.codegym.service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

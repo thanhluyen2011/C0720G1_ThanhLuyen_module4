@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Home</title>
+
+    <style>
+        div {
+            text-align: center;
+        }
+
+        table {
+            border: 1px solid blue;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        th, td {
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <a th:href="@{/category/create}">Create New Category</a>
+    <p style="color: blue" th:text="${message}"></p>
+    <table >
+        <tr>
+            <th>Name</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <th:block th:each="category : ${categoryList}">
+            <tr>
+                <td><a th:href="@{/blog/blog-of-category(id=${category.id})}" th:text="${category.name}"></a></td>
+                <td><a th:href="@{/category/update(id=${category.id})}">Edit</a></td>
+                <td><a th:href="@{/category/delete(id=${category.id})}">Delete</a></td>
+            </tr>
+        </th:block>
+    </table>
+    <footer th:replace="~{common/common::footerBlog}"></footer>
+</div>
+</body>
+</html>
