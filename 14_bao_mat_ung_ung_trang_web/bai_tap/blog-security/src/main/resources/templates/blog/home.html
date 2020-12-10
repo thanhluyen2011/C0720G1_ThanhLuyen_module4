@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Home</title>
+
+    <style>
+        div {
+            text-align: center;
+        }
+
+        table {
+            border: 1px solid blue;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        th, td {
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <a th:href="@{/blog/create}">Create New Blog</a><br><br>
+
+    <form action="/blog">
+        <label>
+            <input type="text" name="keyword" th:value="${keywordOld}" />
+        </label>
+        <input type="submit" value="Search" />
+    </form><br>
+
+    <a th:href="@{/blog/sort}">Sort by Date Create</a>
+
+    <p style="color: blue" th:text="${message}"></p>
+    <table >
+        <tr>
+            <th>Name</th>
+            <th>Date Created</th>
+            <th>Category</th>
+            <th>View</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <th:block th:each="blog : ${blogList}">
+            <tr>
+                <td th:text="${blog.getName()}"></td>
+                <td th:text="${blog.getDateCreated()}"></td>
+                <td th:text="${blog.category.name}"></td>
+                <td><a th:href="@{/blog/detail(id=${blog.getId()})}">View Detail</a></td>
+                <td><a th:href="@{/blog/update(id=${blog.getId()})}">Edit</a></td>
+                <td><a th:href="@{/blog/delete(id=${blog.getId()})}">Delete</a></td>
+            </tr>
+        </th:block>
+    </table>
+
+    <a th:if="${blogList.hasPrevious()}" th:href="@{/blog(page = ${blogList.number - 1}, keyword = ${keywordOld})}">Previous</a>
+    <span th:text="${blogList.number + 1}"></span>/<span th:text="${blogList.totalPages}"></span>
+    <a th:if="${blogList.hasNext()}" th:href="@{/blog(page = ${blogList.number + 1}, keyword = ${keywordOld})}">Next</a>
+
+    <footer th:replace="~{common/common::footerBlog}"></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Blog</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-lg-12">
+                    <button id="btnLoadInfo">Load info</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="inputName">Name</label>
+                        <input type="text" class="form-control" id="inputName" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDateOfBirth">Date of birth</label>
+                        <input type="text" class="form-control" id="inputDateOfBirth" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="inputNameRegister">Name</label>
+                <input type="text" class="form-control" id="inputNameRegister">
+            </div>
+            <div class="form-group">
+                <label for="inputDateOfBirthRegister">Date of birth</label>
+                <input type="date" class="form-control" id="inputDateOfBirthRegister">
+            </div>
+            <div class="form-group">
+                <input type="button" class="form-control btn-primary" id="btnRegister" value="Register">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        let idStudent = "a";
+
+        $("#btnLoadInfo").click(function() {
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type : "GET",
+                // data: {"id": idStudent},
+                url: "http://localhost:8080//restBlog/blog/" + idStudent,
+                success: function(blog) {
+                    console.log(blog);
+                    $("#inputName").val(blog.id);
+                    $("#inputDateOfBirth").val(blog.name);
+                },
+                error: function(content) {
+                    console.log(content);
+                }
+            });
+        });
+
+        $("#btnRegister").click(function() {
+            let nameStudent = $("#inputNameRegister").val();
+            let dateOfBirthStudent = $("#inputDateOfBirthRegister").val();
+            // C1
+            let objStudent = {"name": nameStudent, "dateOfBirth": dateOfBirthStudent};
+            // C2: Tạo class Student, với các thuộc tính và phương thức
+            //...
+            console.log(objStudent);
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type : "POST",
+                data: JSON.stringify(objStudent),
+                url: "http://localhost:8080/studentRest/register",
+                success: function(data, statusContent, header) {
+                    console.log("1: " + statusContent);
+                    console.log("2: " + header.status);
+                    // location.href = "https://www.google.com";
+                },
+                error: function(content) {
+                    console.log(content);
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
