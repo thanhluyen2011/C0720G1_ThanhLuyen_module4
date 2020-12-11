@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+
+<a th:href="@{/category}">
+    Back to home
+</a><br><br>
+
+<form action="/category/update" method="post" th:object="${category}">
+    <input type="hidden" th:field="*{id}"/>
+
+    <label>Name :
+        <input type="text" th:field="*{name}"/>
+    </label><br><br>
+
+    <input type="submit" value="Update"/>
+</form>
+
+<footer th:replace="~{common/common::footerBlog}"></footer>
+</body>
+</html>
